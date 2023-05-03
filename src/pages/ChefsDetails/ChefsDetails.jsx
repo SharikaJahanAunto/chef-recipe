@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './CardDetails.css'
 
 const ChefsDetails = () => {
     const [chefs, setChefs] = useState([])
@@ -10,28 +11,36 @@ const ChefsDetails = () => {
             .then(data => setChefs(data))
             .catch(error => console.error(error))
     }, [])
+
+    const cardStyle = {
+        margin: '40px', // setting the margin on all sides of the card
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', // adding a box shadow for some depth
+        
+      };
+     
     return (
         <div>
-            <h4 className='text-center'>Most Popular and  Brilliant Chefs of Bangladesh</h4>
-            <div className='mx-auto'>
+            <h4 className='text-center'>Most Popular and Brilliant Chefs of Bangladesh</h4>
+            <Row>
                 {
-                    chefs.map(chef => <div
-                        key={chef.id}
-                    >
-                    </div>)
+                    chefs.map(chef => (
+                        <Col md={4} key={chef._id}>
+                            <Card style={cardStyle}>
+                                <Card.Img style={{height: '300px'}} variant="top" src={chef.picture} />
+                                <Card.Body>
+                                    <Card.Title>{chef.name}</Card.Title>
+                                    <Card.Text>
+                                        {chef.yearsOfExperience} years of experience<br />
+                                        {chef.numberOfRecipes} recipes<br />
+                                        {chef.likes} likes
+                                    </Card.Text>
+                                    <Link to={`/chefs/${chef._id}`} className="btn btn-primary">View Recipes</Link>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))
                 }
-            </div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>{chefs.name}</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the cards content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
+            </Row>
         </div>
     );
 };

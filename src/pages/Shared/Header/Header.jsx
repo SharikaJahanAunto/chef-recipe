@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/logo.jpg'
 import moment from 'moment';
 import './Header.css'
 import { Button} from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Header = () => {
+
+
+
     return (
         <div className=''>
             <div className="text-center">
