@@ -1,9 +1,12 @@
 import React from 'react';
+import ChefsDetails from '../ChefsDetails/ChefsDetails';
+import MainContent from '../Shared/MainContent/MainContent';
 
 const Home = () => {
     return (
         <div>
-            <h2>this is home</h2>
+            <MainContent></MainContent>
+            <ChefsDetails></ChefsDetails>
         </div>
     );
 };

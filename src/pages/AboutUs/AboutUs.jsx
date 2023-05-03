@@ -4,7 +4,7 @@ import MainContent from '../Shared/MainContent/MainContent';
 const AboutUs = () => {
     return (
         <div>
-             <MainContent></MainContent>
+             
         </div>
     );
 };
