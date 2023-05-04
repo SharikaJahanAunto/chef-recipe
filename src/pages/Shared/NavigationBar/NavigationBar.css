@@ -1,0 +1,45 @@
+/* Navbar styling */
+.navbar {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+  }
+  
+  .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+  }
+  
+  .navbar-brand:hover,
+  .nav-link:hover {
+    color: #dc3545;
+  }
+  
+  /* User icon styling */
+  .fa-user-circle {
+    color: #dc3545;
+    margin-right: 1rem;
+  }
+  
+  /* Login/Logout button styling */
+  .btn-secondary {
+    background-color: #dc3545;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #c82333;
+  }
+  

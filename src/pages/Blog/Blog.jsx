@@ -3,7 +3,6 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <h3>This is blog</h3>
             <div>
                 <h2>Question-1: Tell us the differences between uncontrolled and controlled components.</h2>
                 <p>The main differences between uncontrolled and controlled components are ownership, customization, integration, and maintenance. Uncontrolled components are owned by the user or a third-party vendor, while controlled components are owned and managed by the software development team. Uncontrolled components can be customized by the user, while controlled components are not typically customizable. Uncontrolled components are integrated into the system by the user, while controlled components are tightly integrated by the development team. Finally, uncontrolled components are maintained by the user or vendor, while controlled components are maintained and updated by the software development team.</p>

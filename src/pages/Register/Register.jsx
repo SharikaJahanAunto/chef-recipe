@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import { Form, Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import './Register.css'
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
@@ -14,6 +15,7 @@ const Register = () => {
         const photo = form.photo.value
         const password = form.password.value
 
+  
 
         console.log(name, photo, email, password);
         createUser(email, password)

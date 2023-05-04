@@ -5,11 +5,8 @@ import './Header.css'
 import { Button} from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Header = () => {
-
-
 
     return (
         <div className=''>
@@ -19,8 +16,8 @@ const Header = () => {
                 <p>{moment().format("dddd, MMMM D, YYYY")}</p>
             </div>
             <div className='d-flex ms-3 mb-4'>
-            <Button variant="danger">Latest History</Button>
-            <Marquee className='text-danger' speed={100}>
+            <Button variant="dark">Latest History</Button>
+            <Marquee className='dark' speed={100}>
             Chef Ananya Banerjee is a popular Bangladeshi chef who has written several cookbooks and is known for her fusion cuisine that combines Bangladeshi flavors with international cuisine... Chef Rownak Jahan is another popular Bangladeshi chef who has a YouTube cooking channel and has published several cookbooks focusing on Bangladeshi cuisine.....
                 </Marquee>
             </div>

@@ -4,9 +4,18 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import './NavigationBar.css'
 
 const NavigationBar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+  console.log(user?.email);
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -15,19 +24,19 @@ const NavigationBar = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav>
                             <Nav.Link href="#deets">
-                                <h2 className='text-danger'>BD Food</h2>
+                                <h2 className='text-dark'>BD Food</h2>
                             </Nav.Link>
                         </Nav>
                         <Nav className="mx-auto">
-                            <Link className='me-3' to="/">Home</Link>
-                            <Link className='me-3' to='blog'>Blog</Link>
-                            <Link className='me-3' to='about'>About Us</Link>
+                            <Link style={{"text-decoration": "none"}} className='me-3 text-dark' to="/">Home</Link>
+                            <Link style={{"text-decoration": "none"}} className='me-3 text-dark' to='blog'>Blog</Link>
+                            <Link style={{"text-decoration": "none"}} className='me-3 text-dark' to='about'>About Us</Link>
                         </Nav>
                         <Nav>
                             {user && 
                                 <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
                           }
-                            {user ? <Button variant="secondary">Logout</Button> :
+                            {user ?  <Button onClick={handleLogout} variant="secondary">Logout</Button> :
                                 <Link to='/login'>
                                     <Button variant="secondary">Login</Button>
                                 </Link>

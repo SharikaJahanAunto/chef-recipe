@@ -1,16 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useContext } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Button, Container, Form } from 'react-bootstrap';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import SocialLoginBtn from '../SocialLoginBtn/SocialLoginBtn';
+import './Login.css'
 
 const Login = () => {
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     console.log('login page location', location);
-    const from = location.state?.from?.pathname || 'chefs/'
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault()
@@ -63,8 +64,7 @@ const Login = () => {
         </Form>
         <div className='text-center'>
         <h4 className='mt-4'>Login With</h4>
-            <Button className='mb-2' variant="outline-primary"> <FaGoogle /> Login with Google</Button>
-            <Button variant="outline-secondary"> <FaGithub></FaGithub> Login with Github</Button>
+           <SocialLoginBtn></SocialLoginBtn>
         </div>
     </Container>
     );

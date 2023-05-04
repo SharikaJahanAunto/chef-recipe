@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import './ChefRecipes.css'
 
 function ChefRecipes() {
- const chef = useLoaderData()
- console.log(chef);
- 
- 
-
-// useEffect(() =>{
-//     fetch(`http://localhost:5000/recipes/${id}`)
-//     .then(res=> res.json())
-//     .then(data => setChef(data))
-//     .catch(error => console.error(error))
-// },[])
-
+  const chef = useLoaderData()
+  console.log(chef);
+  
   if (!chef) {
     return <div>Loading...</div>;
   }
 
   const { chefName, chefPicture, chefBio, likes, numberOfRecipes, yearsOfExperience, recipes } = chef;
 
+  // Add state for favorite button
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+
+  const handleFavoriteClick = (recipe) => {
+    // Show toast message
+    alert(`"${recipe.name}" is your favorite recipe!`);
+
+    // Add recipe to favoriteRecipes state and disable button
+    setFavoriteRecipes([...favoriteRecipes, recipe]);
+  }
+
   return (
-    <div>
-        <h3>recipe file</h3>
+    <div className='mx-auto text-center'>
       <div className="banner">
         <img src={chefPicture} alt={chefName} />
         <div className="info">
@@ -41,12 +43,14 @@ function ChefRecipes() {
             <h3>{recipe.name}</h3>
             <ul>
               {recipe.ingredients?.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
+                <p key={index}>{ingredient}</p>
               ))}
             </ul>
             <p>{recipe.cookingMethod}</p>
             <div className="rating">{recipe.rating} stars</div>
-            <button>{recipe.isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}</button>
+            <button onClick={() => handleFavoriteClick(recipe)} disabled={favoriteRecipes.includes(recipe)}>
+              {favoriteRecipes.includes(recipe) ? 'Added to Favorites' : 'Add to Favorites'}
+            </button>
           </div>
         ))}
       </div>
