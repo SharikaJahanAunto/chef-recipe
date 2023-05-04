@@ -24,9 +24,9 @@ const NavigationBar = () => {
                             <Link className='me-3' to='about'>About Us</Link>
                         </Nav>
                         <Nav>
-                            {user && <Nav.Link href="#deets">
+                            {user && 
                                 <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                            </Nav.Link>}
+                          }
                             {user ? <Button variant="secondary">Logout</Button> :
                                 <Link to='/login'>
                                     <Button variant="secondary">Login</Button>
