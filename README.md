@@ -7,8 +7,8 @@ Client live site: https://the-chef-client-9d191.web.app
 Server live site: https://the-chef-server.vercel.app/
 
 
--firstly created react router 
--installed dependencies
--based the home page
--added header and footer for every single page
--deployed client and server side 
+1. firstly created react router 
+2. installed dependencies
+3. based the home page
+4. added header and footer for every single page
+5. deployed client and server side 
