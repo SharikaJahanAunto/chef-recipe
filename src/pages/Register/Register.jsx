@@ -5,6 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import './Register.css'
 
 const Register = () => {
+    const [correct, setCorrect] = useState('')
     const { createUser } = useContext(AuthContext)
     const [accepted, setAccepted] = useState(false)
     const handleRegister = event => {
@@ -14,7 +15,10 @@ const Register = () => {
         const email = form.email.value
         const photo = form.photo.value
         const password = form.password.value
-      
+        if(password.length < 6){
+            setCorrect('password should be at least 6 characters')
+            return;
+        }
 
         console.log(name, photo, email, password);
         createUser(email, password)
@@ -34,6 +38,7 @@ const Register = () => {
     return (
         <Container className='w-75 mx-auto text-center'>
             <h3 className="mt-4">Please Register</h3>
+            <p>{correct}</p>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>

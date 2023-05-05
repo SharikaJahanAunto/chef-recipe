@@ -39,4 +39,27 @@
   .banner-content button:hover {
     background-color: #f4511e;
   }
+  @media screen and (max-width: 572px) {
+    .banner-container {
+      height: 300px;
+    }
+  
+    .banner-content {
+      padding: 1rem;
+    }
+    
+    .banner-content h1 {
+      font-size: 3rem;
+    }
+    
+    .banner-content p {
+      font-size: 1.2rem;
+    }
+    
+    .banner-content button {
+      font-size: 1rem;
+      padding: 0.8rem 1.6rem;
+      
+    }
+  }
   
