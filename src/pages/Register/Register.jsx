@@ -7,7 +7,6 @@ import './Register.css'
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const [accepted, setAccepted] = useState(false)
-    const [inCorrect, setIncorrect] = useState('');
     const handleRegister = event => {
         event.preventDefault()
         const form = event.target
@@ -15,10 +14,7 @@ const Register = () => {
         const email = form.email.value
         const photo = form.photo.value
         const password = form.password.value
-        if(!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)){
-            setIncorrect('Password must be at least 6 characters long');
-            return;
-        }
+      
 
         console.log(name, photo, email, password);
         createUser(email, password)
@@ -37,7 +33,6 @@ const Register = () => {
 
     return (
         <Container className='w-75 mx-auto text-center'>
-            <p className="text-danger">{inCorrect}</p>
             <h3 className="mt-4">Please Register</h3>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
