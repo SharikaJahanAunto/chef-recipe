@@ -7,6 +7,7 @@ import './Register.css'
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const [accepted, setAccepted] = useState(false)
+    const [inCorrect, setIncorrect] = useState('');
     const handleRegister = event => {
         event.preventDefault()
         const form = event.target
@@ -14,8 +15,10 @@ const Register = () => {
         const email = form.email.value
         const photo = form.photo.value
         const password = form.password.value
-
-  
+        if(!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)){
+            setIncorrect('Password must be at least 6 characters long');
+            return;
+        }
 
         console.log(name, photo, email, password);
         createUser(email, password)
@@ -26,58 +29,56 @@ const Register = () => {
             .catch(error =>{
                 console.log(error);
             })
-
     }
 
     const handleAccepted = event =>{
         setAccepted(event.target.checked);
     }
+
     return (
-        <Container className='w-25 mx-auto'>
-        <h3>Please Register</h3>
-        <Form onSubmit={handleRegister}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" name='name' placeholder="Your Name" required />
+        <Container className='w-75 mx-auto text-center'>
+            <p className="text-danger">{inCorrect}</p>
+            <h3 className="mt-4">Please Register</h3>
+            <Form onSubmit={handleRegister}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" name='name' placeholder="Your Name" required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Photo URL</Form.Label>
+                    <Form.Control type="text" name='photo' placeholder="Photo URL" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" name='email' placeholder="Enter email" required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" name='password' placeholder="Password" required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check
+                        onClick={handleAccepted}
+                        className="mb-3"
+                        type="checkbox"
+                        name='accept'
+                        label={<>Accept <Link to='/terms' activeClassName="active"> Terms and Conditions</Link></>} />
+                </Form.Group>
+                <Button variant="primary" disabled={!accepted} type="submit">
+                    Register
+                </Button>
+                <br />
+                <Form.Text className='text-secondary'>
+                    Already Have an Account? <Link to='/login' activeClassName="active">Login</Link>
+                </Form.Text>
+                <Form.Text className="text-success">
 
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Photo URL</Form.Label>
-                <Form.Control type="text" name='photo' placeholder="Photo URL" required />
+                </Form.Text>
+                <Form.Text className="text-danger">
 
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" name='email' placeholder="Enter email" required />
-
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" name='password' placeholder="Password" required />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check 
-                onClick={handleAccepted}
-                type="checkbox" 
-                name='accept' 
-                label={<>Accept <Link to='/terms'> Terms and Conditions</Link></>} />
-            </Form.Group>
-            <Button variant="primary" disabled={!accepted} type="submit">
-                Register
-            </Button>
-            <br />
-            <Form.Text className='text-secondary'>
-                Already Have an Account? <Link to='/login'>Login</Link>
-            </Form.Text>
-            <Form.Text className="text-success">
-
-            </Form.Text>
-            <Form.Text className="text-danger">
-
-            </Form.Text>
-        </Form>
-    </Container>
+                </Form.Text>
+            </Form>
+        </Container>
     );
 };
 

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import './ChefRecipes.css'
+import './ChefRecipes.css';
+import LazyLoad from 'react-lazy-load';
 
 function ChefRecipes() {
-  const chef = useLoaderData()
+  const chef = useLoaderData();
   console.log(chef);
   
   if (!chef) {
@@ -21,12 +22,14 @@ function ChefRecipes() {
 
     // Add recipe to favoriteRecipes state and disable button
     setFavoriteRecipes([...favoriteRecipes, recipe]);
-  }
+  };
 
   return (
     <div className='mx-auto text-center'>
       <div className="banner">
-        <img src={chefPicture} alt={chefName} />
+        <LazyLoad height={200}>
+          <img src={chefPicture} alt={chefName} />
+        </LazyLoad>
         <div className="info">
           <h2>{chefName}</h2>
           <p>{chefBio}</p>

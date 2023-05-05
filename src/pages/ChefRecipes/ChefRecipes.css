@@ -1,112 +1,62 @@
-/* ChefRecipes Component Styles */
-
 .banner {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.info {
+  flex-grow: 1;
+  max-width: 400px;
+  margin: 20px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats > * {
+  margin: 10px;
+}
+
+.recipe {
+  margin-bottom: 20px;
+}
+
+.recipe h3 {
+  margin-bottom: 10px;
+}
+
+.recipe ul {
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.recipe p {
+  margin-bottom: 5px;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .banner {
+    flex-direction: column;
     align-items: center;
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
   }
-  
-  .banner img {
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  
-  .info h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .info p {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 16px;
-  }
-  
-  .stats {
-    display: flex;
-    margin-bottom: 10px;
-  }
-  
-  .stats > div {
-    margin-right: 20px;
-    font-size: 16px;
-  }
-  
-  .likes {
-    color: #ff9f1a;
-  }
-  
-  .recipes {
-    color: #4caf50;
-  }
-  
-  .experience {
-    color: #3f51b5;
-  }
-  
-  .recipes .recipe {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .recipe h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .recipe ul {
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    list-style: disc;
-  }
-  
-  .recipe li {
-    margin-bottom: 5px;
-    font-size: 16px;
-  }
-  
-  .recipe p {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 16px;
-  }
-  
-  .rating {
-    color: #7b6110;
-    font-size: 16px;
-  }
-  
-  .recipe button {
-    border: none;
-    outline: none;
-    background-color: #3f51b5;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .recipe button:hover {
-    background-color: #1e2b4e;
-  }
-  
-  .recipe button:focus {
-    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.5);
-  }
-  
-  .recipe button:active {
-    transform: scale(0.98);
-  }
-  
+}

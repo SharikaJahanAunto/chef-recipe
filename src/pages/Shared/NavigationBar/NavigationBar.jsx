@@ -2,20 +2,23 @@ import React, { useContext } from 'react';
 
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import './NavigationBar.css'
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
-  console.log(user?.email);
-  const handleLogout = () => {
-    logOut()
-      .then()
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+    console.log(user?.email);
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch((err) =>
+                console.log(err));
+
+               
+    };
+    const imgWidth = 50;
+    const imgHeight = 50;
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -28,15 +31,19 @@ const NavigationBar = () => {
                             </Nav.Link>
                         </Nav>
                         <Nav className="mx-auto">
-                            <Link style={{"text-decoration": "none"}} className='me-3 text-dark' to="/">Home</Link>
-                            <Link style={{"text-decoration": "none"}} className='me-3 text-dark' to='blog'>Blog</Link>
-                            <Link style={{"text-decoration": "none"}} className='me-3 text-dark' to='about'>About Us</Link>
+                            <Link style={{ "text-decoration": "none" }} className='me-3 text-dark' to="/">Home</Link>
+                            <Link style={{ "text-decoration": "none" }} className='me-3 text-dark' to='blog'>Blog</Link>
+                            <Link style={{ "text-decoration": "none" }} className='me-3 text-dark' to='about'>About Us</Link>
+                            <Link style={{ "text-decoration": "none" }} className='me-3 text-dark' to='contact'>Contact Us</Link>
                         </Nav>
                         <Nav>
-                            {user && 
-                                <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                          }
-                            {user ?  <Button onClick={handleLogout} variant="secondary">Logout</Button> :
+                            {user &&
+                            <>
+                                <img  style={{ width: imgWidth, height: imgHeight }} src={user.photoURL} alt="" title={user.displayName} />
+    
+                            </>
+                            }
+                            {user ? <Button onClick={handleLogout} variant="secondary">Logout</Button> :
                                 <Link to='/login'>
                                     <Button variant="secondary">Login</Button>
                                 </Link>
