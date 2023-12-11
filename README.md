@@ -1,11 +1,7 @@
 # Chef-Recipe-Hunter-Client-Side
 
-
-
-
 - Client live site: https://the-chef-client-9d191.web.app
 - Server live site: https://the-chef-server-sharikajahanaunto.vercel.app/
-
 
 1. Firstly created react router 
 2. Installed dependencies
