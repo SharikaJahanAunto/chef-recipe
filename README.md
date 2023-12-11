@@ -7,8 +7,8 @@
 - Server live site: https://the-chef-server-sharikajahanaunto.vercel.app/
 
 
-1. firstly created react router 
-2. installed dependencies
-3. based the home page
-4. added header and footer for every single page
-5. deployed client and server side 
+1. Firstly created react router 
+2. Installed dependencies
+3. Based the home page
+4. Added header and footer for every single page
+5. Deployed client and server side 
