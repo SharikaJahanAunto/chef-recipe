@@ -1,10 +1,10 @@
-# b7a10-chef-recipe-hunter-client-side-SharikaJahanAunto
-b7a10-chef-recipe-hunter-client-side-SharikaJahanAunto created by GitHub Classroom
+# Chef-Recipe-Hunter-Client-Side
 
 
 
-Client live site: https://the-chef-client-9d191.web.app
-Server live site: https://the-chef-server-sharikajahanaunto.vercel.app/
+
+- Client live site: https://the-chef-client-9d191.web.app
+- Server live site: https://the-chef-server-sharikajahanaunto.vercel.app/
 
 
 1. firstly created react router 
